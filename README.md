@@ -18,7 +18,7 @@ This is a fully responsive landing page for "Study MBBS Abroad," built using **H
 ## ⚙️ Setup Instructions
 1. Clone the repository:
    ```sh
-   git clone https://github.com/YOUR_USERNAME/mbbs-abroad-landing-page.git
+   git clone https://github.com/Sourav-student/Study-Abroad
 
 2. Install dependencies:
    ```sh
