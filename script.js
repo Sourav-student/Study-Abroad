@@ -6,7 +6,7 @@ let mbbsForm = document.getElementById("mbbsForm");
 more.forEach((btn, index) => {
   btn.addEventListener("click", () => {
     const isOpen = btn.innerHTML === "x";
-    
+
     more.forEach((b) => (b.innerHTML = "+"));
     box.forEach((b) => (b.style.display = "none"));
 
@@ -29,12 +29,17 @@ document.getElementById("mbbsForm").addEventListener("submit", function (event) 
       country: document.getElementById("country").value
   };
 
-  fetch("https://mbbs-backend-8lag.onrender.com", {
+  fetch("https://mbbs-backend-8lag.onrender.com/submit", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData)
   })
-  .then(response => response.json())
+  .then(response => {
+      if (!response.ok) {
+          throw new Error("Server error, please try again.");
+      }
+      return response.json();
+  })
   .then(data => alert(data.message))
   .catch(error => console.error("Error:", error));
 });
