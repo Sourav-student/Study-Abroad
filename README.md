@@ -12,7 +12,7 @@ This is a fully responsive landing page for "Study MBBS Abroad," built using **H
 🔗 [View Live Site](https://study-mbbs-abroad-nine.vercel.app/)
 
 ## 📂 Project Structure
-/study-mbbs-abroad ├── index.html ├── styles.css ├── script.js ├── README.md
+/Study-Abroad ├── index.html ├── output.css ├── script.js ├── README.md
 
 
 ## ⚙️ Setup Instructions
