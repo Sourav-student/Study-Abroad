@@ -29,7 +29,7 @@ document.getElementById("mbbsForm").addEventListener("submit", function (event) 
       country: document.getElementById("country").value
   };
 
-  fetch("https://mbbs-backend-8lag.onrender.com/submit", {
+  fetch("https://mbbs-backend-8lag.onrender.com", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData)
