@@ -17,37 +17,24 @@ more.forEach((btn, index) => {
   });
 });
 
+
+//Form submitted to backend
 document.getElementById("mbbsForm").addEventListener("submit", function (event) {
   event.preventDefault();
 
-  let name = document.getElementById("name").value.trim();
-  let email = document.getElementById("email").value.trim();
-  let phone = document.getElementById("phone").value.trim();
-  let country = document.getElementById("country").value;
-  let errorMessage = "";
+  let formData = {
+      name: document.getElementById("name").value.trim(),
+      email: document.getElementById("email").value.trim(),
+      phone: document.getElementById("phone").value.trim(),
+      country: document.getElementById("country").value
+  };
 
-  if (name === "") {
-      errorMessage += "Name is required.\n";
-  }
-
-  if (!/\S+@\S+\.\S+/.test(email)) {
-      errorMessage += "Enter a valid email.\n";
-  }
-
-  if (!/^\d{10}$/.test(phone)) {
-      errorMessage += "Enter a valid 10-digit phone number.\n";
-  }
-
-  if (country === "") {
-      errorMessage += "Select a country.\n";
-  }
-
-  if (errorMessage) {
-      alert(errorMessage);
-  } else {
-      alert("Form submitted successfully!");
-      document.getElementById("mbbsForm").submit();
-  }
-
-  console.log(name, email, phone, country)
+  fetch("https://mbbs-backend-8lag.onrender.com/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData)
+  })
+  .then(response => response.json())
+  .then(data => alert(data.message))
+  .catch(error => console.error("Error:", error));
 });
